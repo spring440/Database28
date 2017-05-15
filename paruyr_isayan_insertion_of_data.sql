@@ -201,3 +201,23 @@ SELECT p.person_id , '1', t.sponsor_level FROM person p INNER JOIN tempholding t
 GO
 DROP TABLE tempholding
 
+GO
+EXEC InsertPresentation 
+'Matija Lah', 
+'SQL Server Statistical Semantic Search', 
+NULL,
+'Advanced',
+'Application & Database Development'
+
+/* Due to presentation test data not having room numbers or time's, i took a example class from the Budapest event and manually added it. */
+
+GO
+INSERT INTO room (room_name, venue_id) VALUES ('Kemény terem', 1)
+
+GO
+INSERT INTO schedule (event_id, class_id, start_time, room_id) VALUES (1, 2, '09:15:00', 1)
+
+GO
+EXEC GetClasses 'Budapest', 'Application & Database Development'
+
+
